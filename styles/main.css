@@ -3,9 +3,17 @@ body {
     padding: 0;
     background: #886666;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60vw;
+    height: 60vw;
+}
+
 #board {
     display: flex;
     flex-direction: column;
@@ -13,9 +21,10 @@ body {
     background: #444444;
     border-radius: 50%;
     margin: auto;
-    width: 80vw;
-    height: 80vw;
+    width: 100%;
+    height: 100%;
 }
+
 #controls {
     display: flex;
     flex-direction: column;
@@ -24,61 +33,88 @@ body {
     align-items: center;
     justify-content: space-evenly;
     background: silver;
-    border: 20px solid #444444;
+    border: 2vw solid #444444;
     border-radius: 50%;
-    height: 40vw;
-    width: 40vw;
-    margin: auto;
+    height: 35vw;
+    width: 35vw;
 }
+
 #counter {
     display: flex;
-    align-content: space-between;
     border: 2px solid black;
     background: black;
     color: black;
-    width: 25%;
+    width: 4vw;
+    height: 4vw;
     font-family: 'digital-clock-font';
     text-align: center;
 }
+
 #cTop, #cMid, #cBtm {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+#cTop h2 {
+    margin-bottom: 0;
+}
+
+#cMid{
+    margin: 0;
+}
+
+#cMid h4{
+    margin: 0;
 }
 #startStrict, #startB, #strictB{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    margin-top: 0;
+}
+
+#startStrict h5{
+    margin: 0;
 }
 #startPlay {
     border-radius: 50%;
     background: tomato;
-    height: 10%;
+    width: 4vw;
+    height: 4vw;
 }
+
 #strictPlay {
     border-radius: 50%;
     background: darkorange;
-    height: 10%;
+    width: 4vw;
+    height: 4vw;
 }
+
 #onOff {
     display: flex;
     justify-content: space-around;
     text-align: center;
     color: black;
     background: #888888;
+    height: 4vw;
+    width 16vw;
 }
+
 .top-row, .bottom-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 5px auto;
 }
+
 .middle-row {
+    display: flex;
     position: absolute;
-    top: 20%;
-    left: 20%
+    top: 10vw;
+    left: 30vw;
 }
+
 .colorB {
     display: flex;
     justify-content: space-between;
@@ -86,12 +122,14 @@ body {
     width: 50%;
     padding: 5px auto;
 }
+
 #green {
     top: 0;
     left: 0;
     border-radius: 100% 0 0 0;
     background: #99cc99;
 }
+
 #red {
     top: 0;
     right: 0;
