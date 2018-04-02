@@ -1,21 +1,21 @@
 <!DOCTYPE html5>
-  <html>
+<html>
     <head>
-      <meta charset='utf-8'>
-      <meta name='viewport' content='width=device-width initial-scale=1.0'>
-      <title>Simon</title>
-      <link rel='stylesheet' href='styles/main.css'>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width initial-scale=1.0'>
+        <title>Simon</title>
+        <link rel='stylesheet' href='styles/main.css'>
     </head>
     <body>
         <div class="container">
             <div id="board">
                 <div class="top-row">
-                    <a class="colorB" id="green" onclick="pickColor('green')"></a>
-                    <a class="colorB" id="red" onclick="pickColor('red')"></a>
+                    <a class="colorB" id="green"></a>
+                    <a class="colorB" id="red"></a>
                 </div>
                 <div class="bottom-row">
-                    <a class="colorB" id="yellow" onclick="pickColor('yellow')"></a>
-                    <a class="colorB" id="blue" onclick="pickColor('blue')"></a>
+                    <a class="colorB" id="yellow"></a>
+                    <a class="colorB" id="blue"></a>
                 </div>
                 <div class="middle-row" id="controls">
                     <div id="cTop">
@@ -26,19 +26,20 @@
                         <div id="startStrict">
                             <div id="startB">
                                 <h5>start</h5>
-                                <button id="startPlay" onclick="newGame(false)" disabled></button>
+                                <button id="startPlay" disabled></button>
                             </div>
                             <div id="strictB">
                                 <h5>strict</h5>
-                                <button id="strictPlay" onclick="newGame(true)" disabled></button>
+                                <button id="strictPlay" disabled></button>
                             </div>
                         </div>
                     </div>
                     <div id="cBtm">
-                        <button id="onOff" onclick="power()">on/off</button>
+                        <button id="onOff">on/off</button>
                     </div>
                 </div>
             </div>
         </div>
+        <script src="scripts/main.js"></script>
     </body>
 </html>
