@@ -172,11 +172,11 @@ document.getElementById("onOff").addEventListener('click', function(){
 });
 
 document.getElementById("startB").addEventListener('click', function(){
-    startGame(false);
+    newGame(false);
 });
 
 document.getElementById("strictB").addEventListener('click', function(){
-    startGame(true);
+    newGame(true);
 });
 
 document.getElementById("red").addEventListener('click', function(){
