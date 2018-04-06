@@ -1,8 +1,8 @@
 const colors = ["green", "red", "blue", "yellow"];
 const sounds = {
-  "green" : new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"), 
-  "red" : new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"), 
-  "blue" : new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+  "green" : new Audio("../media/simonSound1.mp3"), 
+  "red" : new Audio("../media/simonSound2.mp3"), 
+  "blue" : new Audio("../media/simonSound4.mp3"),
   "yellow" : new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")
 }
 let count = 0;
@@ -13,34 +13,29 @@ let currentPattern;
 let nGuess = 0;
 let speed;
 
-function newGame(isStrict) {
-    strict = isStrict;
-    count = 0; 
-    nGuess = 0;
-    speed = 1000;
-    setPattern();
-    newRound();
+function getColors(color) {
+    let shades;
+    if (color == "green") {
+         shades = ["lime","#99cc99"];
+    } else if (color == "red") {
+        shades = ["pink", "#cc9999"];
+    } else if (color == "yellow") {
+        shades = ["yellow", "#cccc99"];
+    } else if (color == "blue") {
+        shades = ["aqua","#99cccc"];
+    }
+    return shades;
 }
 
-function updateCounter() {
-    count++;
-    if (count < 10) {
-        document.getElementById('counter').innerHTML = "0" + count;
-    } else {
-        document.getElementById('counter').innerHTML = count;
+function flash(color) {
+    if(on){
+        let currentColors = getColors(color);
+        document.getElementById(color).style.background = currentColors[0];
+        setTimeout(function() {
+            document.getElementById(color).style.background = currentColors[1];
+            sounds[color].play();
+        }, 300);
     }
-}
-
-function newRound() {
-    nGuess = 0;
-    updateCounter();
-    currentPattern = winningPattern.slice(0, count);
-    if (count == 5 || count == 9 || count == 13){
-        speed -= 100;
-    }
-    setTimeout(function() {
-        playPattern(currentPattern);
-    }, speed);
 }
 
 function setPattern() {
@@ -67,29 +62,25 @@ function playPattern(pattern) {
     }, speed);
 }
 
-function flash(color) {
-    if(on){
-        let currentColors = getColors(color);
-        document.getElementById(color).style.background = currentColors[0];
-        setTimeout(function() {
-            document.getElementById(color).style.background = currentColors[1];
-            sounds[color].play();
-        }, 300);
+function updateCounter() {
+    count++;
+    if (count < 10) {
+        document.getElementById('counter').innerHTML = "0" + count;
+    } else {
+        document.getElementById('counter').innerHTML = count;
     }
 }
 
-function getColors(color) {
-    let shades;
-    if (color == "green") {
-         shades = ["lime","#99cc99"];
-    } else if (color == "red") {
-        shades = ["pink", "#cc9999"];
-    } else if (color == "yellow") {
-        shades = ["yellow", "#cccc99"];
-    } else if (color == "blue") {
-        shades = ["aqua","#99cccc"];
+function newRound() {
+    nGuess = 0;
+    updateCounter();
+    currentPattern = winningPattern.slice(0, count);
+    if (count == 5 || count == 9 || count == 13){
+        speed -= 100;
     }
-    return shades;
+    setTimeout(function() {
+        playPattern(currentPattern);
+    }, speed);
 }
 
 function checkGuess(guess) {
@@ -109,6 +100,15 @@ function errorSound() {
         count--;
         updateCounter();
     }, 400);
+}
+
+function newGame(isStrict) {
+    strict = isStrict;
+    count = 0; 
+    nGuess = 0;
+    speed = 1000;
+    setPattern();
+    newRound();
 }
 
 function gameOver() {
