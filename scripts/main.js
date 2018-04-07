@@ -1,9 +1,9 @@
 const colors = ["green", "red", "blue", "yellow"];
 const sounds = {
-  "green" : new Howl({src: ["../simon-game/media/simonSound1.mp3"], format: ["mp3"]}), 
-  "red" : new Howl({src: ["../simon-game/media/simonSound2.mp3"], format: ["mp3"]}), 
-  "yellow" : new Howl({src: ["../simon-game/media/simonSound3.mp3"], format: ["mp3"]}),
-  "blue" : new Howl({src: ["../simon-game/media/simonSound4.mp3"], format: ["mp3"]})
+  "green" : new Howl({src: ["../simon-game/media/simonSound1.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"], format: ["mp3"]}), 
+  "red" : new Howl({src: ["../simon-game/media/simonSound2.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"], format: ["mp3"]}), 
+  "yellow" : new Howl({src: ["../simon-game/media/simonSound3.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"], format: ["mp3"]}),
+  "blue" : new Howl({src: ["../simon-game/media/simonSound4.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"], format: ["mp3"]})
 }
 let count = 0;
 let on = false;
