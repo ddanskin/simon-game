@@ -1,9 +1,9 @@
 const colors = ["green", "red", "blue", "yellow"];
 const sounds = {
-  "green" : new Audio("../media/simonSound1.mp3"), 
-  "red" : new Audio("../media/simonSound2.mp3"), 
-  "blue" : new Audio("../media/simonSound4.mp3"),
-  "yellow" : new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")
+  "green" : new Howl({src: ["../simon/media/simonSound1.mp3"], format: ["mp3"]}), 
+  "red" : new Howl({src: ["../simon/media/simonSound2.mp3"], format: ["mp3"]}), 
+  "yellow" : new Howl({src: ["../simon/media/simonSound3.mp3"], format: ["mp3"]}),
+  "blue" : new Howl({src: ["../simon/media/simonSound4.mp3"], format: ["mp3"]})
 }
 let count = 0;
 let on = false;
@@ -27,15 +27,25 @@ function getColors(color) {
     return shades;
 }
 
+function resetSounds(){
+    setTimeout(function(){
+        for(let sound in sounds){
+            sound.stop();
+        }
+    }, 200);
+}
+
 function flash(color) {
     if(on){
         let currentColors = getColors(color);
         document.getElementById(color).style.background = currentColors[0];
+        resetSounds();
         setTimeout(function() {
             document.getElementById(color).style.background = currentColors[1];
             sounds[color].play();
         }, 300);
     }
+    return sounds[color]
 }
 
 function setPattern() {
