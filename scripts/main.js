@@ -1,9 +1,9 @@
 const colors = ["green", "red", "blue", "yellow"];
 const sounds = {
-  "green" : new Howl({src: ["../simon-game/media/simonSound1.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"], format: ["mp3"]}), 
-  "red" : new Howl({src: ["../simon-game/media/simonSound2.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"], format: ["mp3"]}), 
-  "yellow" : new Howl({src: ["../simon-game/media/simonSound3.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"], format: ["mp3"]}),
-  "blue" : new Howl({src: ["../simon-game/media/simonSound4.mp3", "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"], format: ["mp3"]})
+  "green" : new Howl({src: ["https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"], format: ["mp3"]}), 
+  "red" : new Howl({src: ["https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"], format: ["mp3"]}), 
+  "yellow" : new Howl({src: ["https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"], format: ["mp3"]}),
+  "blue" : new Howl({src: ["https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"], format: ["mp3"]})
 }
 let count = 0;
 let on = false;
@@ -30,7 +30,7 @@ function getColors(color) {
 function resetSounds(){
     setTimeout(function(){
         for(let sound in sounds){
-            sound.stop();
+            sound.currentTime = 0;
         }
     }, 200);
 }
@@ -167,15 +167,17 @@ function pickColor(color) {
 document.getElementById("onOff").addEventListener('click', function(){
     on = !on;
     if (on) {
+        document.getElementById('onOff').style.backgroundColor = '#FFFFFF';
+        document.getElementById('onOff').style.justifyContent = 'flex-start';
         document.getElementById('counter').innerHTML = '--';
         document.getElementById('counter').style.color = 'red';
-        document.getElementById('onOff').style.color = 'lightyellow';
         document.getElementById('startPlay').disabled = false;
         document.getElementById('strictPlay').disabled = false; 
     } else {
+        document.getElementById('onOff').style.backgroundColor = '#222222';
+        document.getElementById('onOff').style.justifyContent = 'flex-end';
         document.getElementById('counter').innerHTML = '--';
         document.getElementById('counter').style.color = 'black';
-        document.getElementById('onOff').style.color = 'black';
         document.getElementById('startPlay').disabled = true;
         document.getElementById('strictPlay').disabled = true;
     }
