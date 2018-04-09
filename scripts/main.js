@@ -168,14 +168,14 @@ document.getElementById("onOff").addEventListener('click', function(){
     on = !on;
     if (on) {
         document.getElementById('onOff').style.backgroundColor = '#FFFFFF';
-        document.getElementById('onOff').style.justifyContent = 'flex-start';
+        document.getElementById('onOff').style.justifyContent = 'flex-end';
         document.getElementById('counter').innerHTML = '--';
         document.getElementById('counter').style.color = 'red';
         document.getElementById('startPlay').disabled = false;
         document.getElementById('strictPlay').disabled = false; 
     } else {
-        document.getElementById('onOff').style.backgroundColor = '#222222';
-        document.getElementById('onOff').style.justifyContent = 'flex-end';
+        document.getElementById('onOff').style.backgroundColor = '#666666';
+        document.getElementById('onOff').style.justifyContent = 'flex-start';
         document.getElementById('counter').innerHTML = '--';
         document.getElementById('counter').style.color = 'black';
         document.getElementById('startPlay').disabled = true;
