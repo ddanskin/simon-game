@@ -1,7 +1,7 @@
 # simon-game
 
 # Project Title
-Simon
+[Simon](https://ddanskin.github.io/simon-game/)
 
 # Motivation
 To build an animated replica of [Simon](https://en.wikipedia.org/wiki/Simon_(game)), the electronic memory game. Originally completed as part of Free Code Camp Front End Development Certification coursework.
