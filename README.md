@@ -1,5 +1,5 @@
 # [Simon](https://ddanskin.github.io/simon-game/)
-To build an animated replica of [Simon](https://en.wikipedia.org/wiki/Simon_(game)), the electronic memory game. Originally completed as part of Free Code Camp Front End Development Certification coursework.
+To build an animated replica of [Simon](https://en.wikipedia.org/wiki/Simon_(game)), the electronic memory game. Originally completed as part of Free Code Camp Front End Development Certification coursework. It is built using JavaScript, HTML and CSS.
 
 ![simon_preview](https://user-images.githubusercontent.com/6474602/40698319-74bcc1e6-639c-11e8-964d-79a861c7c093.jpg)
 
